@@ -1,12 +1,91 @@
 /*================ General layout styles ================*/
 body,
 html {
-  background-color: $color-body;
-}
+	background-color: $color-body;
+	box-sizing: border-box;
 
-.page-width {
-  @include clearfix();
-  max-width: $width-site;
-  padding: 0 $gutter;
-  margin: 0 auto;
+	a {
+		text-decoration: none;
+	}
+
+	.page-width {
+		@include clearfix();
+		max-width: $width-site;
+		padding: 0 $gutter;
+		margin: 0 auto;
+	}
+
+	div[data-section-id="header"] {
+		display: flex;
+		flex-flow: column;
+
+		header[role="banner"] {
+			display: flex;
+			justify-content: space-between;
+			padding: 0 1em;
+
+			h1 {
+				width: 150px;
+			}
+
+			a {
+				align-self: center;
+				justify-self: center;
+				width: 113px;
+			}
+		}
+
+		nav[role="navigation"] {
+			display: flex;
+			justify-content: center;
+
+			ul {
+				list-style-type: none;
+				padding-left: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				li {
+					padding: 0 .5em;
+				}
+			}
+		}
+	}
+
+	main#MainContent {
+		display: flex;
+		flex-flow: column;
+
+		div#shopify-section-collection-list {
+			display: grid;
+			grid-template-areas: ". header ." "card1 card2 card3";
+			height: 462px;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: 4em auto;
+
+			h2 {
+				grid-area: header;
+				text-align: center;
+			}
+
+			div {
+				grid-row: 2 / 3;
+
+				a {
+					display: flex;
+					flex-flow: column;
+
+					p {
+						text-align: right;
+					}
+				}
+			}
+		}
+
+		div#shopify-section-featured-collection {
+			display: flex;
+			flex-flow: column;
+		}
+	}
 }
